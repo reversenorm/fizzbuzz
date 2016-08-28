@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FizzBuzz Example</title>
+ <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+<style>
+
+body {
+     color:#000000;
+     font-family: "Roboto", Arial, sans-serif;
+     font-weight: 300;
+     font-size:10pt;
+     margin:20px;
+}
+
+#Explination{
+	width:80%;
+}
+
+#Form{
+	position:relative;
+	float:left;
+	width:30%;
+	border-style: medium;
+	border-color: #000000;
+	background-color: #dddddd;
+	height:300px;
+	margin:20px;
+	padding:10px;
+}
+
+#output{
+	position:relative;
+	float:left;
+	width:50%;
+	border-style: medium;
+	border-color: #000000;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	background-color: #dddddd;
+	height:300px;
+	margin:20px;
+	padding:10px;
+}
+
+
+
+</style>
+
+</head>
+
+		<body>
+
+<div id="Explination">
+		This is a simple FizzBuzz example. The game is to write out every number between 0 and some upper value but when the program gets to a specified multiple, for instance of 3, the program prints out Fizz. When it gets to a different multiple, for instance of 5, the program prints out Buzz. Finally when the value reachedis a multiple of both it will print out FizzBuzz. This little example allows you to choose the relevent multiples as well as the upper limit of the set of numbers to check (within reason).<br />
+
+		</div>
+
+<div id="Form">
+	<form id="fizzbuzz">
+	  Fizz Multiple: <input type="number" name="fizz" value="3"><br>
+	  Buzz Multiple: <input type="number" name="buzz" value="5"><br>
+	  Value to Check: <input type="number" name="TotalCheck" value="30"><br />
+	</form>
+
+	<button onclick="FizzBuzzFunction()">Find Fizz and Buzz</button> <br />
+
+</div>
+
+<div id="output">&nbsp;</div>
+
+<script type="text/javascript">
+
+function FizzBuzzFunction() {
+
+
+
+    var x = document.getElementById("fizzbuzz");
+    var fizz = x.elements[0].value;
+    var buzz = x.elements[1].value;
+    var TotalCheck = x.elements[2].value;
+    var StringOutput="Output:";
+
+    if (TotalCheck<=1000){
+
+
+	    for (var i = 0; i <= TotalCheck ;i++){
+	    	StringOutput += "<br />";
+
+	    	if ((i%fizz)===0){
+	    		StringOutput += "Fizz";
+	    	};
+
+	    	if ((i%buzz)===0){
+	    		StringOutput += "Buzz";
+	    	};
+
+	    	if ((i%fizz)!=0 && (i%buzz)!=0){
+	    		StringOutput += i;
+	    	};
+
+	    };
+
+	    document.getElementById("output").innerHTML = StringOutput;
+
+	}else{
+
+		document.getElementById("output").innerHTML = 'Output:<br />Please Keep "Value to Check" 1000 or less.';
+
+	};
+
+};
+
+</script>
+
+
+
+
+		</body>
+
+
+</html>
